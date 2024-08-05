@@ -1,7 +1,7 @@
 
 
-import redacted from '@/assets/Footer/redacted.png'
-import lync from '@/assets/Footer/lync.png'
+import redacted from '/assets/Footer/redacted.png'
+import lync from '/assets/Footer/lync.png'
 export const Footer = () => {
   return (
     <div className='w-full h-20 backdrop-blur-[5px]  flex items-center justify-center flex-col gap-2'>

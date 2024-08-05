@@ -15,10 +15,10 @@ const BackgroundStyles = {
   LEVEL_1:{
     background:`
           
-          url('./src/assets/Level1/bottom-bg.png'),
-          url('./src/assets/Level1/right-bg.png'),
-          url('./src/assets/Level1/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level1/bottom-bg.png'),
+          url('/assets/Level1/right-bg.png'),
+          url('/assets/Level1/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
     backgroundSize: "100%,cover,cover, cover",
     backgroundPosition:"10px,top right,center,center"
@@ -27,9 +27,9 @@ const BackgroundStyles = {
   LEVEL_2:{
     background:`
           
-          url('./src/assets/Level2/moon-top.png'),
-          url('./src/assets/Level2/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level2/moon-top.png'),
+          url('/assets/Level2/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
     backgroundSize:"100%,100%, cover",
     backgroundPosition:"10px 0px,center,center"
@@ -39,9 +39,9 @@ const BackgroundStyles = {
     background:`
           
           
-          url('./src/assets/Level3/bottom-bg.png'),
-          url('./src/assets/Level3/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level3/bottom-bg.png'),
+          url('/assets/Level3/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
     backgroundSize:"100%,100%, cover",
     backgroundPosition:"bottom,center,center"
@@ -49,8 +49,8 @@ const BackgroundStyles = {
   },
   LEVEL_4:{
 
-    background:`url('./src/assets/Level4/center-bg.png'),
-    url('./src/assets/Global/global-bg.jpg')`,
+    background:`url('/assets/Level4/center-bg.png'),
+    url('/assets/Global/global-bg.jpg')`,
     backgroundSize:"100%, cover",
     backgroundPosition:'center,center'
   },
@@ -58,10 +58,10 @@ const BackgroundStyles = {
     background:`
           
           
-          url('./src/assets/Level5/bottom1-bg.png'),
-          url('./src/assets/Level5/bottom2-bg.png'),
-          url('./src/assets/Level5/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level5/bottom1-bg.png'),
+          url('/assets/Level5/bottom2-bg.png'),
+          url('/assets/Level5/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
     backgroundSize:"100%,100%,100%, cover",
     backgroundPosition:"bottom,bottom,center,center"
@@ -72,9 +72,9 @@ const BackgroundStyles = {
           
           
           
-          url('./src/assets/Level6/center1-bg.png'),
-          url('./src/assets/Level6/center2-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level6/center1-bg.png'),
+          url('/assets/Level6/center2-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
     backgroundSize: "100%,100%, cover",
     backgroundPosition:"center,center,center"
@@ -86,7 +86,7 @@ const BackgroundStyles = {
           
           
           
-    url('./src/assets/Level7/center-bg.png')
+    url('/assets/Level7/center-bg.png')
     
   `,
     backgroundSize:"100%",

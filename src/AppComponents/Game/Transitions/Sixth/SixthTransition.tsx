@@ -2,7 +2,7 @@
 
 import { TRANSITION_ACTIONS, useTap } from '@/contexts/TapContext'
 
-import ball from '@/assets/TransitionPages/Sixth/ball.png'
+import ball from '/assets/TransitionPages/Sixth/ball.png'
 export const SixthTransition = () => {
     const {state,setIsPaused,dispatch} = useTap()
     return (

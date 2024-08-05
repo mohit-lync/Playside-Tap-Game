@@ -23,55 +23,55 @@ module.exports = {
       backgroundImage:{
         navLinks:"linear-gradient(90.3deg, #373F96 0.11%, #435EC8 52.04%, #373C94 99.82%, #38388E 99.82%)",
         activeNavLinkBg:'linear-gradient(90deg, #C1FFFB 0%, #A1AAFF 100%)',
-        'global': "url('./src/assets/Global/global-bg.jpg'),url('./src/assets/Global/image.png')",
+        'global': "url('/assets/Global/global-bg.jpg'),url('/assets/Global/image.png')",
         level1Bg: `
           
-          url('./src/assets/Level1/bottom-bg.png'),
-          url('./src/assets/Level1/right-bg.png'),
-          url('./src/assets/Level1/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level1/bottom-bg.png'),
+          url('/assets/Level1/right-bg.png'),
+          url('/assets/Level1/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
         level2Bg: `
           
-          url('./src/assets/Level2/moon-top.png'),
-          url('./src/assets/Level2/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level2/moon-top.png'),
+          url('/assets/Level2/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
         level3Bg: `
           
           
-          url('./src/assets/Level3/bottom-bg.png'),
-          url('./src/assets/Level3/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level3/bottom-bg.png'),
+          url('/assets/Level3/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
         level4Bg: `
           
           
-          url('./src/assets/Level4/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level4/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
         level5Bg: `
           
           
-          url('./src/assets/Level5/bottom1-bg.png'),
-          url('./src/assets/Level5/bottom2-bg.png'),
-          url('./src/assets/Level5/center-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level5/bottom1-bg.png'),
+          url('/assets/Level5/bottom2-bg.png'),
+          url('/assets/Level5/center-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
         level6Bg: `
           
           
           
-          url('./src/assets/Level6/center1-bg.png'),
-          url('./src/assets/Level6/center2-bg.png'),
-          url('./src/assets/Global/global-bg.jpg')
+          url('/assets/Level6/center1-bg.png'),
+          url('/assets/Level6/center2-bg.png'),
+          url('/assets/Global/global-bg.jpg')
         `,
         level7Bg: `
           
           
           
           
-          url('./src/assets/Level7/center-bg.png')
+          url('/assets/Level7/center-bg.png')
           
         `,
         level1TransitionBg: `
@@ -80,8 +80,8 @@ module.exports = {
           
           
           
-          url('./src/assets/TransitionPages/First/fore1.png'),
-          url('./src/assets/Global/transition-global-bg.png')
+          url('/assets/TransitionPages/First/fore1.png'),
+          url('/assets/Global/transition-global-bg.png')
           
         `,
         level2TransitionBg: `
@@ -90,8 +90,8 @@ module.exports = {
           
           
           
-          url('./src/assets/TransitionPages/Second/fore.png'),
-          url('./src/assets/Global/transition-global-bg.png')
+          url('/assets/TransitionPages/Second/fore.png'),
+          url('/assets/Global/transition-global-bg.png')
           
         `,
         level3TransitionBg: `
@@ -100,8 +100,8 @@ module.exports = {
           
           
           
-          url('./src/assets/TransitionPages/Third/fore.png'),
-          url('./src/assets/Global/transition-global-bg.png')
+          url('/assets/TransitionPages/Third/fore.png'),
+          url('/assets/Global/transition-global-bg.png')
           
         `,
         level4TransitionBg: `
@@ -110,8 +110,8 @@ module.exports = {
           
           
           
-          url('./src/assets/TransitionPages/Fourth/fore.png'),
-          url('./src/assets/Global/transition-global-bg.png')
+          url('/assets/TransitionPages/Fourth/fore.png'),
+          url('/assets/Global/transition-global-bg.png')
           
         `,
         level5TransitionBg: `
@@ -120,8 +120,8 @@ module.exports = {
           
           
           
-          url('./src/assets/TransitionPages/Fifth/fore.png'),
-          url('./src/assets/Global/transition-global-bg.png')
+          url('/assets/TransitionPages/Fifth/fore.png'),
+          url('/assets/Global/transition-global-bg.png')
           
         `,
         level6TransitionBg: `
@@ -130,8 +130,8 @@ module.exports = {
           
           
           
-          url('./src/assets/TransitionPages/Sixth/fore.png'),
-          url('./src/assets/Global/transition-global-bg.png')
+          url('/assets/TransitionPages/Sixth/fore.png'),
+          url('/assets/Global/transition-global-bg.png')
           
         `,
         scoreCardBorderGradient:"linear-gradient(90deg, #FF6417 1.86%, rgba(112, 0, 255, 0.94) 101%)",

@@ -1,23 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+
 import './index.css'
 import { Game } from './Pages/Game/Game.tsx';
 import { Scores } from './Pages/Scores/Scores.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Learn } from './Pages/Learn/Learn.tsx';
 import TapProvider from './contexts/TapContext.tsx';
+
+import { SwitchToMobileView } from './AppComponents/SwitchToMobileView/SwitchToMobileView.tsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>
-      <div className='hidden md:block'>
-        please switch to mobile view
-      </div>
-      <div className='md:hidden h-screen overflow-hidden'>
-        <App />
-      </div>
-    </div>,
+    element: <SwitchToMobileView/>,
     children:[
       {
         path: "",

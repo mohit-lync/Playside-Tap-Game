@@ -35,9 +35,6 @@ export const Taparea = () => {
           }
           id="not-found-svg"
           loop={true}
-          style={{
-            maskImage: "radial-gradient(circle, black 50%, rgba(255, 0, 0, 0.5) 50%)"
-          }}
           // className={`absolute -top-30 z-0 animate-appear  w-[100%] md:w-[37%] fill-transparent ${progress >= ProgressConfigurations.LIMIT ? "block" : "hidden"}` }
           className={`absolute -top-30 -z-10 block  w-[100vw] fill-transparent ` }
         />

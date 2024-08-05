@@ -1,5 +1,5 @@
 
-import ball from '@/assets/TransitionPages/First/ball.png'
+import ball from '/assets/TransitionPages/First/ball.png'
 import { TRANSITION_ACTIONS, useTap } from '@/contexts/TapContext'
 export const FirstTransition = () => {
     const {state,setIsPaused,dispatch} = useTap()

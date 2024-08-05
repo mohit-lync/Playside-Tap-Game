@@ -11,12 +11,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-import hamburger from '@/assets/Navbar/hamburger.png'
-import logo from '@/assets/Sidebar/logo.png'
-import x from '@/assets/Sidebar/x.png'
-import tg from '@/assets/Sidebar/tg.png'
-import redacted from '@/assets/Footer/redacted.png'
-import lync from '@/assets/Footer/lync.png'
+import hamburger from '/assets/Navbar/hamburger.png'
+import logo from '/assets/Sidebar/logo.png'
+import x from '/assets/Sidebar/x.png'
+import tg from '/assets/Sidebar/tg.png'
+import redacted from '/assets/Footer/redacted.png'
+import lync from '/assets/Footer/lync.png'
 import { Link } from "react-router-dom"
 export function Sidebar() {
   return (

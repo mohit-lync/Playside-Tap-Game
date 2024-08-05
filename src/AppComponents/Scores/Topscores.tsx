@@ -1,6 +1,6 @@
 import { my_address, scores } from '@/constants/score_data'
 
-import crown from '@/assets/Scores/crown.png'
+import crown from '/assets/Scores/crown.png'
 
 
 export const Topscores = () => {

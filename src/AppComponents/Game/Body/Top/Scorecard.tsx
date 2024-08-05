@@ -1,11 +1,11 @@
 
-import level1 from '@/assets/Scorecard/level1.png'
-import level2 from '@/assets/Scorecard/level2.png'
-import level3 from '@/assets/Scorecard/level3.png'
-import level4 from '@/assets/Scorecard/level4.png'
-import level5 from '@/assets/Scorecard/level5.png'
-import level6 from '@/assets/Scorecard/level6.png'
-import level7 from '@/assets/Scorecard/level7.png'
+import level1 from '/assets/Scorecard/level1.png'
+import level2 from '/assets/Scorecard/level2.png'
+import level3 from '/assets/Scorecard/level3.png'
+import level4 from '/assets/Scorecard/level4.png'
+import level5 from '/assets/Scorecard/level5.png'
+import level6 from '/assets/Scorecard/level6.png'
+import level7 from '/assets/Scorecard/level7.png'
 import { SCORE_ICON_LEVELS_REF, useTap } from '@/contexts/TapContext'
 
 

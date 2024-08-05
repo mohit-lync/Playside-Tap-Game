@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useReducer, useRef, useState } from "react";
-import TapAnimation from '@/assets/Animations/Tap/tap-anim.json'
-import level1_ball from '@/assets/Orbs/level1.png';
-import level2_ball from '@/assets/Orbs/level2.png';
-import level3_ball from '@/assets/Orbs/level3.svg';
-import level4_ball from '@/assets/Orbs/level4.svg';
-import level5_ball from '@/assets/Orbs/level5.svg';
-import level6_ball from '@/assets/Orbs/level6.png';
-import level7_ball from '@/assets/Orbs/level7.svg';
+import TapAnimation from '../assets/Animations/Tap/tap-anim.json'
+import level1_ball from '/assets/Orbs/level1.png';
+import level2_ball from '/assets/Orbs/level2.png';
+import level3_ball from '/assets/Orbs/level3.svg';
+import level4_ball from '/assets/Orbs/level4.svg';
+import level5_ball from '/assets/Orbs/level5.svg';
+import level6_ball from '/assets/Orbs/level6.png';
+import level7_ball from '/assets/Orbs/level7.svg';
 
 
 

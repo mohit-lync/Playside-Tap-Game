@@ -1,11 +1,11 @@
 
-import level1 from '@/assets/Progressbar/level1.png'
-import level2 from '@/assets/Progressbar/level2.png'
-import level3 from '@/assets/Progressbar/level3.png'
-import level4 from '@/assets/Progressbar/level4.png'
-import level5 from '@/assets/Progressbar/level5.png'
-import level6 from '@/assets/Progressbar/level6.png'
-import level7 from '@/assets/Progressbar/level7.png'
+import level1 from '/assets/Progressbar/level1.png'
+import level2 from '/assets/Progressbar/level2.png'
+import level3 from '/assets/Progressbar/level3.png'
+import level4 from '/assets/Progressbar/level4.png'
+import level5 from '/assets/Progressbar/level5.png'
+import level6 from '/assets/Progressbar/level6.png'
+import level7 from '/assets/Progressbar/level7.png'
 import { PROGRESS_BAR_LEVELS_REF, ProgressConfigurations, useTap } from '@/contexts/TapContext'
 
 const percenttage_calculate = (progress:number,start:number) =>{
