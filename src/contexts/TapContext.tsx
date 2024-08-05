@@ -90,11 +90,11 @@ interface ITapContext {
     handleTap: ()=>void;
     tapAnimationRef: any;
     isPaused: boolean;
-    setIsPaused: (val:boolean)=>void;
+    setIsPaused: any;
     state:LEVEL_CONFIG;
     dispatch:any;
     isAutoTapping: boolean;
-    setIsAutoTapping:(val:boolean) => void;
+    setIsAutoTapping:any;
     renderHelper:number
 }
 
@@ -111,11 +111,11 @@ const TapContext = React.createContext<ITapContext>({
     handleTap:()=>null,
     tapAnimationRef: null,
     isPaused: false,
-    setIsPaused: (val:boolean)=>null,
+    setIsPaused: null,
     state: initialState,
     dispatch: ()=>null,
     isAutoTapping: false,
-    setIsAutoTapping:(val:boolean) => null,
+    setIsAutoTapping:null,
     renderHelper: 0
 
 })
@@ -171,7 +171,7 @@ export const TRANSITION_ACTIONS = {
 
 }
 
-const reducer = (state: any, {type,payload}: any) => {
+const reducer = (state: any, {type}: any) => {
     switch(type){
         case TRANSITION_ACTIONS.TO_LEVEL_2_MIDWAY:
             return {
@@ -296,7 +296,7 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     const [renderHelper,setRenderHelper] = useState<number>(0);
     
     const autoTapInterval = useRef<any>(null);
-    const decrementInterval = useRef<any>(null);
+    // const decrementInterval = useRef<any>(null);
     const progressBar = useRef(null);
     const tapButton = useRef(null);
     const tapAnimationRef = useRef<any>(null);

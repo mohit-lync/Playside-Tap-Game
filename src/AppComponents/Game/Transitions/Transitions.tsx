@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FirstTransition } from './First/FirstTransition'
 import { TRANSITION_BACKGROUNDS, useTap } from '@/contexts/TapContext'
 import { SecondTransition } from './Second/SecondTransition'
