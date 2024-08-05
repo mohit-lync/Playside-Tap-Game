@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap Game</title>
+    <style>
+        #progressContainer {
+            width: 100%;
+            background-color: #e0e0e0;
+            height: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        #progressBar {
+            height: 100%;
+            width: 0;
+            background-color: #76c7c0;
+            transition: width 0.2s;
+            background: linear-gradient(90deg, #FF6417 1.86%, rgba(112, 0, 255, 0.94) 101%);
+box-shadow: inset 0px -2.16186px 4.32372px rgba(0, 0, 0, 0.25), inset 0px 3.24279px 4.32372px rgba(255, 255, 255, 0.5);
+        }
+        #tapButton {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #tapButton:active {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    <div id="progressContainer">
+        <div id="progressBar"></div>
+    </div>
+    
+    
+    <button id="tapButton">Tap Me!</button>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const tapButton = document.getElementById('tapButton');
+        let progress = 0;
+        let isTapping = false;
+        let decrementInterval;
+
+        // Function to increment progress
+        function incrementProgress() {
+            if (progress < 100) {
+                progress += 0.3;
+                progressBar.style.width = progress + '%';
+            }
+        }
+
+        // Function to decrement progress
+        function decrementProgress() {
+            if (progress > 0) {
+                progress -= 1;
+                progressBar.style.width = progress + '%';
+            }
+        }
+
+        // Start tapping
+        tapButton.addEventListener('mousedown', () => {
+            isTapping = true;
+            clearInterval(decrementInterval);
+            incrementProgress();
+            const incrementInterval = setInterval(() => {
+                if (isTapping) {
+                    incrementProgress();
+                } else {
+                    clearInterval(incrementInterval);
+                }
+            }, 200);
+        });
+
+        // Stop tapping
+        tapButton.addEventListener('mouseup', () => {
+            isTapping = false;
+            /* decrementInterval = setInterval(() => {
+                if (!isTapping) {
+                    decrementProgress();
+                } else {
+                    clearInterval(decrementInterval);
+                }
+            }, 200); */
+        });
+
+        // For mobile devices, add touch events
+        tapButton.addEventListener('touchstart', () => {
+            isTapping = true;
+            clearInterval(decrementInterval);
+            incrementProgress();
+            const incrementInterval = setInterval(() => {
+                if (isTapping) {
+                    incrementProgress();
+                } else {
+                    clearInterval(incrementInterval);
+                }
+            }, 200);
+        });
+
+        /* tapButton.addEventListener('touchend', () => {
+            isTapping = false;
+            decrementInterval = setInterval(() => {
+                if (!isTapping) {
+                    decrementProgress();
+                } else {
+                    clearInterval(decrementInterval);
+                }
+            }, 200);
+        }); */
+    </script>
+</body>
+</html>
