@@ -24,7 +24,7 @@ export function Sidebar() {
       <SheetTrigger asChild>
         <img src={hamburger} className="w-11" alt="" />
       </SheetTrigger>
-      <SheetContent className="bg-[#000053] flex flex-col">
+      <SheetContent className="bg-[#000053] border-l-0 flex flex-col">
         <SheetHeader>
           <SheetTitle>
             <img src={logo} alt="" />
@@ -34,7 +34,7 @@ export function Sidebar() {
           </SheetDescription> */}
         </SheetHeader>
         <div className="grid gap-4 py-4">
-          <Link to={"https://x.com/_REDACTEDStudio"} target="_blank" className="flex items-center justify-start px-6 py-4 w-full rounded-xl gap-7"
+          <Link to={"https://x.com/taptapplaygg"} target="_blank" className="flex items-center justify-start px-6 py-4 w-full rounded-xl gap-7"
             style={{
               background: "linear-gradient(180deg, #5100FF 0%, #510099 100%)"
 
@@ -43,7 +43,7 @@ export function Sidebar() {
             <img src={x} className="w-10" alt="" />
             <p className="font-semibold text-base text-nowrap text-white">Follow us on X</p>
           </Link>
-          <Link to={"t.me/TapTapPLAY"} target="_blank" className="flex items-center justify-start px-6 py-4 w-full rounded-xl gap-3"
+          <Link to={"t.me/PLAYSIDEGG"} target="_blank" className="flex items-center justify-start px-6 py-4 w-full rounded-xl gap-3"
             style={{
               background: "linear-gradient(180deg, #5100FF 0%, #510099 100%)"
 

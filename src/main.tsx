@@ -7,7 +7,7 @@ import { Scores } from './Pages/Scores/Scores.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Learn } from './Pages/Learn/Learn.tsx';
 import TapProvider from './contexts/TapContext.tsx';
-
+import { Toaster } from "@/components/ui/toaster"
 import { SwitchToMobileView } from './AppComponents/SwitchToMobileView/SwitchToMobileView.tsx';
 const router = createBrowserRouter([
   {
@@ -33,6 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <TapProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </TapProvider>
   </React.StrictMode>,
 )

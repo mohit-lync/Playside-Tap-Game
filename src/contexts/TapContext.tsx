@@ -95,7 +95,9 @@ interface ITapContext {
     dispatch:any;
     isAutoTapping: boolean;
     setIsAutoTapping:any;
-    renderHelper:number
+    renderHelper:number;
+    tapAnimationPosition:any;
+    setTapAnimationPosition:any;
 }
 
 
@@ -116,7 +118,10 @@ const TapContext = React.createContext<ITapContext>({
     dispatch: ()=>null,
     isAutoTapping: false,
     setIsAutoTapping:null,
-    renderHelper: 0
+    renderHelper: 0,
+    tapAnimationPosition:null,
+    setTapAnimationPosition:()=>null
+
 
 })
 
@@ -126,12 +131,12 @@ export const ProgressConfigurations = {
     INCREMENT_RATE:1,
     DECREMENT_RATE:0.1,
     INTERVALS:{
-        FIRST:15,
-        SECOND:30,
-        THIRD:45,
-        FOURTH:60,
-        FIFTH:75,
-        SIXTH:90,
+        FIRST:50,
+        SECOND:60,
+        THIRD:70,
+        FOURTH:80,
+        FIFTH:90,
+        SIXTH:100,
     }    
 }
 
@@ -294,7 +299,8 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     const [isPaused,setIsPaused] = useState<boolean>(false);
     const [isAutoTapping,setIsAutoTapping] = useState<boolean>(false);
     const [renderHelper,setRenderHelper] = useState<number>(0);
-    
+    const [tapAnimationPosition,setTapAnimationPosition] = useState<any>(null)
+
     const autoTapInterval = useRef<any>(null);
     // const decrementInterval = useRef<any>(null);
     const progressBar = useRef(null);
@@ -395,7 +401,10 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
         dispatch,
         isAutoTapping,
         setIsAutoTapping,
-        renderHelper
+        renderHelper,
+        tapAnimationPosition,
+        setTapAnimationPosition,
+        
 
     }
 

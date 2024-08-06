@@ -31,7 +31,7 @@ export const ThirdTransition = () => {
               >Now entering <br /> Crystal realm..</p>
           </div>
           <div>
-              <img src={ball} className='w-20' alt="" />
+              <img src={ball} className='w-12' alt="" />
           </div>
       </div>
     )

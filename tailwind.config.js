@@ -62,8 +62,8 @@ module.exports = {
           
           
           
-          url('/assets/Level6/center1-bg.png'),
-          url('/assets/Level6/center2-bg.png'),
+          
+          url('/assets/Level6/center-bg.png'),
           url('/assets/Global/global-bg.jpg')
         `,
         level7Bg: `
@@ -140,7 +140,7 @@ module.exports = {
         autoTapSwitchContainerBackgroundChecked:"linear-gradient(90deg, #FF6417 1.86%, rgba(112, 0, 255, 0.94) 101%)",
         autoTapSwitchContainerBackgroundUnChecked:"linear-gradient(94.4deg, #000000 2.66%, rgba(0, 0, 0, 0) 53.57%), linear-gradient(214.96deg, #000000 -9.35%, #131517 79.43%)",
         msgBoxBackground:"linear-gradient(90deg, rgba(217, 217, 217, 0.02) 0%, rgba(92, 255, 255, 0.02) 100%)",
-
+        toastBg:"linear-gradient(180deg, #5100FF 0%, #510099 100%)"
 
 
 

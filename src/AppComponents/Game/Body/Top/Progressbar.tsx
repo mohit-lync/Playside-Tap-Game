@@ -11,7 +11,7 @@ import { PROGRESS_BAR_LEVELS_REF, ProgressConfigurations, useTap } from '@/conte
 const percenttage_calculate = (progress:number,start:number) =>{
   const d = progress - start;
   
-  const p = d * 100 / 13; 
+  const p = d * 100 / 10; 
   
   return p
 }

@@ -9,8 +9,9 @@ import { Navbar } from './AppComponents/Navbar/Navbar';
 import { Footer } from './AppComponents/Footer/Footer';
 import { cn } from "./lib/utils";
 import { GAME_BACKGROUNDS, useTap } from "./contexts/TapContext";
-import { useEffect, useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import TapAnimation from '../public/assets/Animations/Tap/tap-anim.json'
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 const BackgroundStyles = {
   LEVEL_1:{
     background:`
@@ -72,8 +73,8 @@ const BackgroundStyles = {
           
           
           
-          url('/assets/Level6/center1-bg.png'),
-          url('/assets/Level6/center2-bg.png'),
+          
+          url('/assets/Level6/center-bg.png'),
           url('/assets/Global/global-bg.jpg')
         `,
     backgroundSize: "100%,100%, cover",
@@ -99,8 +100,15 @@ const BackgroundStyles = {
 
 
 
+const get_width_animation_container = (id:string) =>{
+  const container = document.getElementById(id)
+  return container!.style.width
+}
+
+
 function App() {
-  const {state} = useTap()
+  const {state,tapAnimationPosition,tapAnimationRef} = useTap()
+  console.log(tapAnimationPosition);
   
   const [currBg,setCurrBg] = useState<any>(null);
 
@@ -117,9 +125,9 @@ function App() {
   useEffect(()=>{
     get_current_background(state.CURRENT_GAME_SCREEN_BG)
   },[state])
-
+  const ShineAnimationLottieRef = useRef<LottieRefCurrentProps>(null);
   return (
-    <div className={cn(`h-screen flex items-center flex-col w-full bg-no-repeat overflow-hidden`,
+    <div className={cn(`h-screen relative flex items-center flex-col w-full bg-no-repeat overflow-hidden`,
       // progress >= 10 ? 'bg-level1TransitionBg' : "bg-level1Bg",
       // !isPaused ? 'bg-'+state.CURRENT_GAME_SCREEN_BG : 'bg-'+state.PREV_GAME_SCREEN_BG
       // 'bg-level7Bg'
@@ -130,6 +138,21 @@ function App() {
     >
       <Navbar/>
       <Outlet/>
+      <Lottie
+          lottieRef={ShineAnimationLottieRef}
+          animationData={
+            tapAnimationRef.current
+            
+          }
+          id="tap-anim"
+          loop={true}
+          style={{
+            left:(tapAnimationPosition?.x ) + 'px',
+            top:(tapAnimationPosition?.y) + 'px',
+          }}
+          // className={`absolute -top-30 z-0 animate-appear  w-[100%] md:w-[37%] fill-transparent ${progress >= ProgressConfigurations.LIMIT ? "block" : "hidden"}` }
+          className={`absolute top-5 z-10 block  w-10 -translate-x-5 -translate-y-5` }
+        />
       <Footer/>
     </div>
   )

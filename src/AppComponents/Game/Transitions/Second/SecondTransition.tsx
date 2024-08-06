@@ -27,7 +27,7 @@ export const SecondTransition = () => {
                   style={{
                       textShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)"
                   }}
-              >Now entering <br /> Fire realm..</p>
+              >Now entering <br /> Lava realm..</p>
           </div>
           <div>
               <img src={ball} className='w-20' alt="" />
