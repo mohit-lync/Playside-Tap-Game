@@ -10,7 +10,7 @@ import { Footer } from './AppComponents/Footer/Footer';
 import { cn } from "./lib/utils";
 import { GAME_BACKGROUNDS, useTap } from "./contexts/TapContext";
 import { useEffect, useRef, useState } from "react";
-import TapAnimation from '../public/assets/Animations/Tap/tap-anim.json'
+
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 const BackgroundStyles = {
   LEVEL_1:{
@@ -100,10 +100,6 @@ const BackgroundStyles = {
 
 
 
-const get_width_animation_container = (id:string) =>{
-  const container = document.getElementById(id)
-  return container!.style.width
-}
 
 
 function App() {

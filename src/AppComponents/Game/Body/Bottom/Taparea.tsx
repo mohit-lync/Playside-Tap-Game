@@ -2,12 +2,12 @@
 // import level1 from '@/assets/Orbs/image.png'
 
 import {  TAP_BALLS, useTap } from '@/contexts/TapContext'
-import Lottie, { LottieRefCurrentProps } from 'lottie-react';
-import {  useRef, useState } from 'react';
+
+
 import { cn } from '@/lib/utils';
-import TapAnimation from '../../../../../public/assets/Animations/Tap/tap-anim.json'
+
 export const Taparea = () => {
-  const {tapButton,handleTap,tapAnimationRef,setTapAnimationPosition, state} = useTap();
+  const {tapButton,handleTap,setTapAnimationPosition, state} = useTap();
   
 
   
