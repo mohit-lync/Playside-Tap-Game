@@ -137,6 +137,12 @@ export const ProgressConfigurations = {
         FOURTH:80,
         FIFTH:90,
         SIXTH:100,
+        // FIRST:10,
+        // SECOND:20,
+        // THIRD:30,
+        // FOURTH:40,
+        // FIFTH:50,
+        // SIXTH:60,
     }    
 }
 

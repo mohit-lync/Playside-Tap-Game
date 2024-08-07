@@ -31,7 +31,7 @@ export const FifthTransition = () => {
               >Now entering <br /> Light realm..</p>
           </div>
           <div>
-              <img src={ball} className='w-20' alt="" />
+              <img src={ball} className='w-32' alt="" />
           </div>
       </div>
     )

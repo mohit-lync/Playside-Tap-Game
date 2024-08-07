@@ -43,7 +43,7 @@ export function Sidebar() {
             <img src={x} className="w-10" alt="" />
             <p className="font-semibold text-base text-nowrap text-white">Follow us on X</p>
           </Link>
-          <Link to={"t.me/PLAYSIDEGG"} target="_blank" className="flex items-center justify-start px-6 py-4 w-full rounded-xl gap-3"
+          <Link to={"https://t.me/PLAYSIDEGG"} target="_blank" className="flex items-center justify-start px-6 py-4 w-full rounded-xl gap-3"
             style={{
               background: "linear-gradient(180deg, #5100FF 0%, #510099 100%)"
 
