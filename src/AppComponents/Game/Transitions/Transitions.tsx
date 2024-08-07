@@ -30,7 +30,7 @@ export const Transitions = () => {
         : <SecondTransition/>
       } */}
       {curr}
-      {/* <SixthTransition/> */}
+      {/* <ThirdTransition/> */}
     </div>
   )
 }

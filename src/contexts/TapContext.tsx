@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useReducer, useRef, useState } from "react";
+
 import TapAnimation from '../assets/Animations/Tap/tap-anim.json'
 import level1_ball from '/assets/Orbs/level1.png';
 import level2_ball from '/assets/Orbs/level2.png';
@@ -7,6 +8,8 @@ import level4_ball from '/assets/Orbs/level4.svg';
 import level5_ball from '/assets/Orbs/level5.svg';
 import level6_ball from '/assets/Orbs/level6.png';
 import level7_ball from '/assets/Orbs/level7.svg';
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+
 
 
 
@@ -98,6 +101,7 @@ interface ITapContext {
     renderHelper:number;
     tapAnimationPosition:any;
     setTapAnimationPosition:any;
+    totalTaps:number;
 }
 
 
@@ -120,23 +124,24 @@ const TapContext = React.createContext<ITapContext>({
     setIsAutoTapping:null,
     renderHelper: 0,
     tapAnimationPosition:null,
-    setTapAnimationPosition:()=>null
+    setTapAnimationPosition:()=>null,
+    totalTaps:0
 
 
 })
 
 
 export const ProgressConfigurations = {
-    LIMIT:100,
+    LIMIT:200,
     INCREMENT_RATE:1,
     DECREMENT_RATE:0.1,
     INTERVALS:{
-        FIRST:50,
-        SECOND:60,
-        THIRD:70,
+        FIRST:20,
+        SECOND:40,
+        THIRD:60,
         FOURTH:80,
-        FIFTH:90,
-        SIXTH:100,
+        FIFTH:120,
+        SIXTH:180,
         // FIRST:10,
         // SECOND:20,
         // THIRD:30,
@@ -152,7 +157,6 @@ export const ProgressConfigurations = {
 export const useTap = () =>{
     return useContext(TapContext)
 }
-
 
 
 
@@ -301,11 +305,17 @@ const reducer = (state: any, {type}: any) => {
 const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     // const [progress,setProgress] = useState<number>(0);
     const progress = useRef<number>(0);
+    const {totalTaps,handleTapIncrement} = useLocalStorage() //from here taps are different and progress is different
+    console.log(totalTaps);
+    
+
     const [isTapping,setIsTapping] = useState<boolean>(false);
     const [isPaused,setIsPaused] = useState<boolean>(false);
     const [isAutoTapping,setIsAutoTapping] = useState<boolean>(false);
     const [renderHelper,setRenderHelper] = useState<number>(0);
     const [tapAnimationPosition,setTapAnimationPosition] = useState<any>(null)
+
+    
 
     const autoTapInterval = useRef<any>(null);
     // const decrementInterval = useRef<any>(null);
@@ -314,9 +324,64 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     const tapAnimationRef = useRef<any>(null);
 
     const [state,dispatch] = useReducer(reducer,initialState);
+
+
+
+    
+
+
+
+    /*-------------------------------------------setting the current level code----------------------------- */
+
+    // setTimeout(()=>{
+    //     progress.current = 12;
+    //     console.log("done");
+        
+
+    //     setRenderHelper(Math.random())
+    // },2000)
+
+    useEffect(()=>{
+        
+        progress.current = Math.floor(totalTaps * 100 / ProgressConfigurations.LIMIT)
+
+        if(totalTaps <= ProgressConfigurations.INTERVALS.SECOND){
+            
+            dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_2_FINAL})
+            
+        }else if(totalTaps <= ProgressConfigurations.INTERVALS.THIRD){
+
+            dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_3_FINAL})
+            
+        }else if(totalTaps <= ProgressConfigurations.INTERVALS.FOURTH){
+            
+            dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_4_FINAL})
+            
+        }else if(totalTaps <= ProgressConfigurations.INTERVALS.FIFTH){
+            
+            dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_5_FINAL})
+            
+        }else if(totalTaps <= ProgressConfigurations.INTERVALS.SIXTH){
+            
+            dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_6_FINAL})
+            
+        }else{
+
+            dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_7_FINAL})
+            
+        }
+    },[totalTaps])
+
+    /*-------------------------------------------setting the current level code END----------------------------- */
+
+
+
+
+
+
     
     useEffect(()=>{
-        console.log(progress);
+        // console.log(progress);
         
         if(progress.current === ProgressConfigurations.INTERVALS.FIRST){
             setIsPaused(true);
@@ -387,6 +452,7 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
         setIsTapping(true);
         tapAnimationRef.current = TapAnimation;
         incrementProgress();
+        handleTapIncrement()
         setTimeout(() => {
             tapAnimationRef.current = null;
             setIsTapping(false)
@@ -410,7 +476,7 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
         renderHelper,
         tapAnimationPosition,
         setTapAnimationPosition,
-        
+        totalTaps
 
     }
 

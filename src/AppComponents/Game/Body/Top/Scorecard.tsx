@@ -13,7 +13,9 @@ import { SCORE_ICON_LEVELS_REF, useTap } from '@/contexts/TapContext'
 export const Scorecard = () => {
 
   // @ts-ignore: Unreachable code error
-  const {progress,state,renderHelper} = useTap()
+  const {progress,state,renderHelper,totalTaps} = useTap()
+  console.log(totalTaps);
+  
   return (
     // <div className='rounded-xl [border-image:linear-gradient(to_top_right,#f6b73c,#4d9f0c)_30] border-4 border-solid border-transparent bg-white p-4'>
     <div className='bg-scoreCardBorderGradient h-10 z-10  rounded-[12px] p-[1.5px]'>
@@ -52,7 +54,7 @@ export const Scorecard = () => {
               <img src={level7} className='w-12 absolute -left-2 -top-4' alt="" />  
             
           }
-        <p className='font-bold text-base ml-10 mb-0.5'>{progress} Elements</p>
+        <p className='font-bold text-base ml-10 mb-0.5'>{totalTaps} Elements</p>
       </div>
     </div>
     

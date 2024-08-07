@@ -5,6 +5,7 @@ export const SecondTransition = () => {
     const {state,setIsPaused,dispatch} = useTap()
     return (
       <div className=' absolute w-full flex items-center bg-level2TransitionBg justify-center flex-col h-screen -top-14 animate-transition-appear '
+    //   <div className=' absolute w-full flex items-center bg-level2TransitionBg justify-center flex-col h-screen -top-14 '
           onAnimationStart={
               ()=>{
                   setTimeout(()=>{
@@ -30,7 +31,7 @@ export const SecondTransition = () => {
               >Now entering <br /> Lava realm..</p>
           </div>
           <div>
-              <img src={ball} className='w-20' alt="" />
+              <img src={ball} className='w-12 mb-2 ml-0.5' alt="" />
           </div>
       </div>
     )

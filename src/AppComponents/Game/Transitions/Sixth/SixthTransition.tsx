@@ -7,6 +7,7 @@ export const SixthTransition = () => {
     const {state,setIsPaused,dispatch} = useTap()
     return (
       <div className=' absolute w-full flex items-center bg-level6TransitionBg justify-center flex-col h-screen -top-14 animate-transition-appear '
+    //   <div className=' absolute w-full flex items-center bg-level6TransitionBg justify-center flex-col h-screen -top-14 '
           onAnimationStart={
               ()=>{
                   setTimeout(()=>{
@@ -35,7 +36,7 @@ export const SixthTransition = () => {
               </p>
           </div>
           <div>
-              <img src={ball} className='w-20' alt="" />
+              <img src={ball} className='w-14' alt="" />
           </div>
       </div>
     )

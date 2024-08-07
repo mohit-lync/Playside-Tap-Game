@@ -104,7 +104,7 @@ const BackgroundStyles = {
 
 function App() {
   const {state,tapAnimationPosition,tapAnimationRef} = useTap()
-  console.log(tapAnimationPosition);
+  
   
   const [currBg,setCurrBg] = useState<any>(null);
 

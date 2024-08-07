@@ -6,6 +6,7 @@ export const FifthTransition = () => {
     const {state,setIsPaused,dispatch} = useTap()
     return (
       <div className=' absolute w-full flex items-center bg-level5TransitionBg justify-center flex-col h-screen -top-14  animate-transition-appear'
+    //   <div className=' absolute w-full flex items-center bg-level5TransitionBg justify-center flex-col h-screen -top-14  '
           onAnimationStart={
               ()=>{
                   setTimeout(()=>{
@@ -31,7 +32,7 @@ export const FifthTransition = () => {
               >Now entering <br /> Light realm..</p>
           </div>
           <div>
-              <img src={ball} className='w-32' alt="" />
+              <img src={ball} className='w-20 mb-0.5 ml-1' alt="" />
           </div>
       </div>
     )

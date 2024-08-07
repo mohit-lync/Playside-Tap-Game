@@ -13,7 +13,6 @@ export const Body = () => {
         setIsTransitioning(true);
       }}
       onAnimationEnd={()=>{
-        console.log("pm");
         setIsTransitioning(false) //
       }}
     >
