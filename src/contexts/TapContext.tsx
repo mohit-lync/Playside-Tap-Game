@@ -139,7 +139,7 @@ const TapContext = React.createContext<ITapContext>({
 
 
 export const ProgressConfigurations = {
-    LIMIT:400,
+    LIMIT:700,
     INCREMENT_RATE:1,
     DECREMENT_RATE:0.1,
     INTERVALS:{
