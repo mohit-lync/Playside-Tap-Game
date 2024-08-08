@@ -11,14 +11,15 @@ import { PROGRESS_BAR_LEVELS_REF, ProgressConfigurations, useTap } from '@/conte
 const percenttage_calculate = (progress:number,start:number) =>{
   const d = progress - start;
   
-  const p = d * 100 / 10; 
+  
+  const p = d * 100 / 55; 
   
   return p
 }
 
 
 export const Progressbar = () => {
-  const {progressBar,progress,state} = useTap()
+  const {progressBar,progress,state,totalTaps} = useTap()
   
 
   
@@ -31,7 +32,7 @@ export const Progressbar = () => {
       /> */}
       <div className={'relative w-full h-full flex items-end justify-center mb-3 overflow-hidden'}
         style={{
-          // height:`${percenttage_calculate(progress,0)/2}%`
+          // height:`${percenttage_calculate(totalTaps,0)/2}%`
           // height:(100)+'%',
           
         }}
@@ -54,7 +55,7 @@ export const Progressbar = () => {
       />
       <div className={'relative w-full flex items-end justify-center mb-2.5 overflow-hidden'}
         style={{
-          height:`${percenttage_calculate(progress,ProgressConfigurations.INTERVALS.FIRST)/2}%`
+          height:`${percenttage_calculate(totalTaps,ProgressConfigurations.INTERVALS.FIRST)/2}%`
           // height:(100)+'%',
           
         }}
@@ -77,7 +78,7 @@ export const Progressbar = () => {
       />
       <div className={'relative w-full flex items-end justify-center mb-2.5 overflow-hidden'}
         style={{
-          height:`${percenttage_calculate(progress,ProgressConfigurations.INTERVALS.SECOND)/2}%`
+          height:`${percenttage_calculate(totalTaps,ProgressConfigurations.INTERVALS.SECOND)/2}%`
           // height:(100)+'%',
           
         }}
@@ -100,7 +101,7 @@ export const Progressbar = () => {
       />
       <div className={'relative w-full flex items-end justify-center mb-2.5 overflow-hidden'}
         style={{
-          height:`${percenttage_calculate(progress,ProgressConfigurations.INTERVALS.THIRD)/2}%`
+          height:`${percenttage_calculate(totalTaps,ProgressConfigurations.INTERVALS.THIRD)/2}%`
           // height:(100)+'%',
           
         }}
@@ -123,7 +124,7 @@ export const Progressbar = () => {
       />
       <div className={'relative w-full flex items-end justify-center mb-2.5 overflow-hidden'}
         style={{
-          height:`${percenttage_calculate(progress,ProgressConfigurations.INTERVALS.FOURTH)/2}%`
+          height:`${percenttage_calculate(totalTaps,ProgressConfigurations.INTERVALS.FOURTH)/2}%`
           // height:(100)+'%',
           
         }}
@@ -146,7 +147,7 @@ export const Progressbar = () => {
       />
       <div className={'relative w-full flex items-end justify-center mb-2.5 overflow-hidden'}
         style={{
-          height:`${percenttage_calculate(progress,ProgressConfigurations.INTERVALS.FIFTH)/2}%`
+          height:`${percenttage_calculate(totalTaps,ProgressConfigurations.INTERVALS.FIFTH)/2}%`
           // height:(100)+'%',
           
         }}
@@ -169,7 +170,7 @@ export const Progressbar = () => {
       />
       <div className={'relative w-full flex items-end justify-center mb-2.5 overflow-hidden'}
         style={{
-          height:`${percenttage_calculate(progress,ProgressConfigurations.INTERVALS.SIXTH)/2}%`
+          height:`${percenttage_calculate(totalTaps,ProgressConfigurations.INTERVALS.SIXTH)/2}%`
           // height:(100)+'%',
           
         }}
@@ -190,9 +191,9 @@ export const Progressbar = () => {
     >
         
         
-        <div id="progressBar" ref={progressBar} className={`h-full rounded-full`}
+        <div id="progressBar" ref={progressBar} className={`h-full rounded-full `}
           style={{
-            width:progress+'%',
+            width:Math.min(progress,100)+'%',
             background: "linear-gradient(90deg, #FF6417 1.86%, rgba(112, 0, 255, 0.94) 101%)",
             boxShadow: "inset 0px -2.16186px 4.32372px rgba(0, 0, 0, 0.25), inset 0px 3.24279px 4.32372px rgba(255, 255, 255, 0.5)"
           }}

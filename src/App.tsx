@@ -45,7 +45,8 @@ const BackgroundStyles = {
           url('/assets/Global/global-bg.jpg')
         `,
     backgroundSize:"100%,100%, cover",
-    backgroundPosition:"bottom,center,center"
+    backgroundPosition:"bottom,center,center",
+    backgroundRepeat:"no-repeat"
 
   },
   LEVEL_4:{
@@ -147,7 +148,7 @@ function App() {
             top:(tapAnimationPosition?.y) + 'px',
           }}
           // className={`absolute -top-30 z-0 animate-appear  w-[100%] md:w-[37%] fill-transparent ${progress >= ProgressConfigurations.LIMIT ? "block" : "hidden"}` }
-          className={`absolute top-5 z-10 block  w-10 -translate-x-5 -translate-y-5` }
+          className={`absolute top-5 z-10 block  w-10 scale-150 -translate-x-5 -translate-y-5` }
         />
       <Footer/>
     </div>

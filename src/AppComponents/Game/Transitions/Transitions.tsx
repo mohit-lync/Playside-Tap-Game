@@ -11,7 +11,8 @@ export const Transitions = () => {
   const {state} = useTap()
   const [curr,setCurr] = useState<any>(null)
   const get_next_transition = (level:any) => {
-    if(level === TRANSITION_BACKGROUNDS.LEVEL_2) setCurr(<FirstTransition/>);
+    if(level === TRANSITION_BACKGROUNDS.LEVEL_1) setCurr(<FirstTransition/>);
+    else if(level === TRANSITION_BACKGROUNDS.LEVEL_2) setCurr(<FirstTransition/>);
     else if(level === TRANSITION_BACKGROUNDS.LEVEL_3) setCurr(<SecondTransition/>);
     else if(level === TRANSITION_BACKGROUNDS.LEVEL_4) setCurr(<ThirdTransition/>);
     else if(level === TRANSITION_BACKGROUNDS.LEVEL_5) setCurr(<FourthTransition/>);

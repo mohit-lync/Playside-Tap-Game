@@ -9,8 +9,9 @@ import level5_ball from '/assets/Orbs/level5.svg';
 import level6_ball from '/assets/Orbs/level6.png';
 import level7_ball from '/assets/Orbs/level7.svg';
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import Meteors from "@/components/ui/meteors";
 
-
+const SHOWER = <Meteors number={40}/>
 
 
 export const TAP_BALLS = {
@@ -102,6 +103,9 @@ interface ITapContext {
     tapAnimationPosition:any;
     setTapAnimationPosition:any;
     totalTaps:number;
+    particlesShowerRef:any;
+    isShowering:boolean;
+    setIsShowering:any;
 }
 
 
@@ -125,23 +129,26 @@ const TapContext = React.createContext<ITapContext>({
     renderHelper: 0,
     tapAnimationPosition:null,
     setTapAnimationPosition:()=>null,
-    totalTaps:0
+    totalTaps:0,
+    particlesShowerRef:null,
+    isShowering: false,
+    setIsShowering: ()=>null
 
 
 })
 
 
 export const ProgressConfigurations = {
-    LIMIT:200,
+    LIMIT:400,
     INCREMENT_RATE:1,
     DECREMENT_RATE:0.1,
     INTERVALS:{
-        FIRST:20,
-        SECOND:40,
-        THIRD:60,
-        FOURTH:80,
-        FIFTH:120,
-        SIXTH:180,
+        FIRST:100,
+        SECOND:200,
+        THIRD:300,
+        FOURTH:400,
+        FIFTH:500,
+        SIXTH:600,
         // FIRST:10,
         // SECOND:20,
         // THIRD:30,
@@ -179,11 +186,20 @@ export const TRANSITION_ACTIONS = {
 
     TO_LEVEL_7_MIDWAY:'to-level-7',
     TO_LEVEL_7_FINAL:'to-level-7-final',
+}
 
-    
-    
-    
 
+const ParticlesDisplayAllower = (tap_value:number) =>{
+    if(
+        tap_value === ProgressConfigurations.INTERVALS.FIRST ||
+        tap_value === ProgressConfigurations.INTERVALS.SECOND ||
+        tap_value === ProgressConfigurations.INTERVALS.THIRD ||
+        tap_value === ProgressConfigurations.INTERVALS.FOURTH ||
+        tap_value === ProgressConfigurations.INTERVALS.FIFTH||
+        tap_value === ProgressConfigurations.INTERVALS.SIXTH
+    ) return false;
+
+    return tap_value % 45 === 0 && tap_value !== 0;
 }
 
 const reducer = (state: any, {type}: any) => {
@@ -306,7 +322,7 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     // const [progress,setProgress] = useState<number>(0);
     const progress = useRef<number>(0);
     const {totalTaps,handleTapIncrement} = useLocalStorage() //from here taps are different and progress is different
-    console.log(totalTaps);
+    
     
 
     const [isTapping,setIsTapping] = useState<boolean>(false);
@@ -314,7 +330,7 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     const [isAutoTapping,setIsAutoTapping] = useState<boolean>(false);
     const [renderHelper,setRenderHelper] = useState<number>(0);
     const [tapAnimationPosition,setTapAnimationPosition] = useState<any>(null)
-
+    const [isShowering,setIsShowering] = useState<boolean>(false)
     
 
     const autoTapInterval = useRef<any>(null);
@@ -322,11 +338,14 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     const progressBar = useRef(null);
     const tapButton = useRef(null);
     const tapAnimationRef = useRef<any>(null);
+    const particlesShowerRef = useRef<any>(null);
 
     const [state,dispatch] = useReducer(reducer,initialState);
 
 
 
+    
+        
     
 
 
@@ -343,25 +362,43 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
 
     useEffect(()=>{
         
-        progress.current = Math.floor(totalTaps * 100 / ProgressConfigurations.LIMIT)
+        if(ParticlesDisplayAllower(totalTaps)){
+            console.log(particlesShowerRef.current);
+            particlesShowerRef.current = SHOWER;
+            setIsShowering(true)
+            setTimeout(()=>{
+                console.log("particles off");
+                console.log(particlesShowerRef.current.props.className);
+                setIsShowering(false)
+                particlesShowerRef.current = null
+                particlesShowerRef.current = <div className="hidden"></div>;
 
-        if(totalTaps <= ProgressConfigurations.INTERVALS.SECOND){
+            },3000)
+            
+        }
+
+        progress.current = Math.floor(totalTaps * 100 / ProgressConfigurations.LIMIT);
+        setRenderHelper(Math.random());
+
+        if(totalTaps < ProgressConfigurations.INTERVALS.FIRST){
+
+        }else if(totalTaps < ProgressConfigurations.INTERVALS.SECOND){
             
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_2_FINAL})
             
-        }else if(totalTaps <= ProgressConfigurations.INTERVALS.THIRD){
+        }else if(totalTaps < ProgressConfigurations.INTERVALS.THIRD){
 
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_3_FINAL})
             
-        }else if(totalTaps <= ProgressConfigurations.INTERVALS.FOURTH){
+        }else if(totalTaps < ProgressConfigurations.INTERVALS.FOURTH){
             
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_4_FINAL})
             
-        }else if(totalTaps <= ProgressConfigurations.INTERVALS.FIFTH){
+        }else if(totalTaps < ProgressConfigurations.INTERVALS.FIFTH){
             
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_5_FINAL})
             
-        }else if(totalTaps <= ProgressConfigurations.INTERVALS.SIXTH){
+        }else if(totalTaps < ProgressConfigurations.INTERVALS.SIXTH){
             
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_6_FINAL})
             
@@ -383,35 +420,36 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     useEffect(()=>{
         // console.log(progress);
         
-        if(progress.current === ProgressConfigurations.INTERVALS.FIRST){
+        if(totalTaps === ProgressConfigurations.INTERVALS.FIRST){
             setIsPaused(true);
             
+            dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_2_MIDWAY})
         }
-        if(progress.current === ProgressConfigurations.INTERVALS.SECOND){
+        if(totalTaps === ProgressConfigurations.INTERVALS.SECOND){
             setIsPaused(true);
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_3_MIDWAY})
             
         }
 
-        if(progress.current === ProgressConfigurations.INTERVALS.THIRD){
+        if(totalTaps === ProgressConfigurations.INTERVALS.THIRD){
             setIsPaused(true);
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_4_MIDWAY})
         }
 
-        if(progress.current === ProgressConfigurations.INTERVALS.FOURTH){
+        if(totalTaps === ProgressConfigurations.INTERVALS.FOURTH){
             setIsPaused(true);
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_5_MIDWAY})
         }
 
-        if(progress.current === ProgressConfigurations.INTERVALS.FIFTH){
+        if(totalTaps === ProgressConfigurations.INTERVALS.FIFTH){
             setIsPaused(true);
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_6_MIDWAY})
         }
-        if(progress.current === ProgressConfigurations.INTERVALS.SIXTH){
+        if(totalTaps === ProgressConfigurations.INTERVALS.SIXTH){
             setIsPaused(true);
             dispatch({type: TRANSITION_ACTIONS.TO_LEVEL_7_MIDWAY})
         }
-    },[progress.current])
+    },[totalTaps])
     
     useEffect(()=>{
         if(isPaused){
@@ -450,7 +488,7 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     const handleTap = ()=>{
         if(isPaused)return
         setIsTapping(true);
-        tapAnimationRef.current = TapAnimation;
+        if(!isAutoTapping)tapAnimationRef.current = TapAnimation;
         incrementProgress();
         handleTapIncrement()
         setTimeout(() => {
@@ -476,7 +514,10 @@ const TapProvider = ({children,}: Readonly<{children: React.ReactNode;}>) => {
         renderHelper,
         tapAnimationPosition,
         setTapAnimationPosition,
-        totalTaps
+        totalTaps,
+        particlesShowerRef,
+        isShowering,
+        setIsShowering,
 
     }
 

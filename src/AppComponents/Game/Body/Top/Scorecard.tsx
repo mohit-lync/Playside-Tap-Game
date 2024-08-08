@@ -14,7 +14,6 @@ export const Scorecard = () => {
 
   // @ts-ignore: Unreachable code error
   const {progress,state,renderHelper,totalTaps} = useTap()
-  console.log(totalTaps);
   
   return (
     // <div className='rounded-xl [border-image:linear-gradient(to_top_right,#f6b73c,#4d9f0c)_30] border-4 border-solid border-transparent bg-white p-4'>

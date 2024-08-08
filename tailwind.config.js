@@ -275,6 +275,14 @@ module.exports = {
             opacity: "0",
             transform: "scale(1.6)"
           },
+        },
+        "meteor": {
+          "0%": { transform: "rotate(-90deg) translateX(0) translateY(50px)", opacity: 1 },
+          "70%": { opacity: 1 },
+          "100%": {
+            transform: "rotate(-90deg) translateX(-1000px) translateY(50px)",
+            opacity: 0,
+          },
         }
       },
       animation: {
@@ -283,6 +291,7 @@ module.exports = {
         "tapArea-float": "tapArea-float 2.5s ease-in-out infinite",
         "appear":"appear 2s ease 0s 1 normal forwards",
         "transition-appear":"transition-appear 5s ease 0s 1 normal forwards",
+        "meteor": "meteor 1s linear forwards",
       },
     },
   },
