@@ -12,7 +12,7 @@ const percenttage_calculate = (progress:number,start:number) =>{
   const d = progress - start;
   
   
-  const p = d * 100 / 55; 
+  const p = d * 100 / 95; 
   
   return p
 }
